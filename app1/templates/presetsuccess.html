@@ -1,0 +1,9 @@
+{% extends 'home.html' %}
+{% block title %}password reset success page{% endblock title %}
+{% block content %}
+<h2>successfully new password is set</h2><br>
+<h3>Now you can login to your account</h3><a href="{% url 'signup_page' %}" class='signinbutton2'>login</a>
+{% for m in messages %}
+{{m}}
+{% endfor %}
+{% endblock content %}

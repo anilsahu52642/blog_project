@@ -1,0 +1,13 @@
+{% extends 'home.html' %}
+{% block title %}password reset confirm page{% endblock title %}
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Set Password" class="passwordresetbutton2">
+
+</form>
+{% for m in messages %}
+{{m}}
+{% endfor %}
+{% endblock content %}

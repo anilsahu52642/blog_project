@@ -1,0 +1,58 @@
+{% extends 'home.html' %}
+{% block title %}authentication page{% endblock title %}
+{% block content %}
+
+<div class="signupandloginform">
+    <!-- login form............ -->
+    <div>
+    <form action='{% url "signin_page" %}' class='signinform' method="POST">
+        {% csrf_token %}
+        {{form2.as_p}}
+        <input type='submit' value='login' class='submitclass'>
+        <input type='reset' value="reset" class='resetclass'>
+
+    </form>
+    <a href="{% url 'password_reset_page' %}" class="forgotpasswordbutton">Forgot Password ?</a>
+    <a href="{% url 'social:begin' 'google-oauth2' %}" class="googleauth"><i class="fab fa-google"></i>continue with google</a>
+    <a href="{% url 'social:begin' 'facebook' %}" class="facebookauth"><i class="fab fa-facebook"></i>continue with facebook</a>
+
+    </div>
+    
+    <!-- signup form.............. -->
+    <div class="form2">
+        <h3>Have you not registered?....</h3>
+        <span class="register" onclick="showsignup()" id="register">Register here...</span>
+        <div class="message">
+            {% if messages %}
+            {% for m in messages %}
+            <span class='{{m.tags}}'>{{m}}</span>
+            {% endfor %}
+            
+            {% endif %}
+            </div>
+    <form action='{% url "signup_page" %}' class='signupform' method="POST" id='signupform'>
+        {% csrf_token %}
+        {{form1.as_p}}
+        <input type='submit' value='signup' class='submitclass'>
+        <input type='reset' value="reset" class="resetclass">
+
+    </form>
+    
+    
+</div>
+
+
+
+
+</div>
+
+
+<script>
+function showsignup(){
+    var y=document.getElementById('signupform');
+    if (y.className=='signupform'){y.className+='showsignup'}
+    else{y.className='signupform'};
+}
+</script>
+
+{% endblock content %}

@@ -1,0 +1,8 @@
+{% extends 'home.html' %}
+{% block title %}profile page{% endblock title %}
+{% block content %}
+<a href="{% url 'create_blog_page' %}" class="createblogbutton">create a blog</a>
+<a href="{% url 'password_change_page' %}" class="pchangebutton">password change</a>
+<a href="{% url 'logout_page' %}" class='logoutbutton'>logout</a>
+
+{% endblock content %}

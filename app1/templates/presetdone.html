@@ -1,0 +1,8 @@
+{% extends 'home.html' %}
+{% block title %}password reset page{% endblock title %}
+{% block content %}
+<h1>A link is send to Registered email address click in the link to reset your password</h1>
+{% for m in messages %}
+{{m}}
+{% endfor %}
+{% endblock content %}
